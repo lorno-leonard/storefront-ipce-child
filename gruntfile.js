@@ -3,7 +3,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     sass: {
       options: {
-        sourcemap: 'none'
+        sourcemap: 'none',
+        style: 'compressed'
       },
       dist: {
         files: {
