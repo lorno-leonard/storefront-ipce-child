@@ -11,4 +11,7 @@ function my_theme_enqueue_styles() {
     );
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
+
+// Remove breadcrumb
+remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0);
 ?>
