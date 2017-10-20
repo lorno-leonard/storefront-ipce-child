@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/lorno-leonard/storefront-ipce-child#readme",
   "devDependencies": {
+    "bootstrap-sass": "^3.3.7",
     "grunt": "^1.0.1",
     "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-watch": "^1.0.0"
+    "grunt-contrib-watch": "^1.0.0",
+    "susy": "^2.2.12"
   }
 }

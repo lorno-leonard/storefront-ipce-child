@@ -1,0 +1,300 @@
+/*!
+Theme Name:   Storefront IPCE Child
+Theme URI:    https://github.com/lorno-leonard/storefront-ipce-child
+Description:  TStorefront IPCE Child Theme
+Author:       Leonard Laput
+Author URI:   http://lorno.co.nf
+Template:     storefront
+Version:      1.0.0
+License:      GNU General Public License v2 or later
+License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+Tags:         child
+Text Domain:  storefront-ipce-child
+*/
+
+// Font
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+
+// Susy
+// Susy grid system. See: http://susydocs.oddbird.net/en/latest/
+@import 'node_modules/susy/sass/susy';
+
+// Vendors
+@import 'assets/sass/vendors/modular-scale';
+
+// Utilities
+@import 'assets/sass/utils/variables';
+
+// Bootstrap Override variables
+$grid-columns: 12;
+$grid-gutter-width: 20px;
+
+// IPCE Variables
+$white: #fff;
+$black: #000;
+$text-color: #333;
+$ipce-color: #dc1433;
+$ipce-transition: all 0.2s ease-in;
+
+// Bootstrap
+@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap/grid';
+@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap/tables';
+
+// Alignment
+.text-left           { text-align: left; }
+.text-right          { text-align: right; }
+.text-center         { text-align: center; }
+.text-justify        { text-align: justify; }
+.text-nowrap         { white-space: nowrap; }
+
+// Transformation
+.text-lowercase      { text-transform: lowercase; }
+.text-uppercase      { text-transform: uppercase; }
+.text-capitalize     { text-transform: capitalize; }
+
+// Override default Woocommerce styles
+.woocommerce-breadcrumb {
+	margin-bottom: ms(1);
+}
+
+.woocommerce-active .site-header .main-navigation {
+	width: 100%;
+	margin-right: 0;
+}
+
+.home.blog,
+.home.page:not(.page-template-template-homepage),
+.home.post-type-archive-product {
+	.site-header {
+		margin-bottom: ms(1);
+	}
+}
+
+.site-header {
+	margin-bottom: ms(1);
+}
+
+.site-header ul.menu li.current-menu-item > a {
+	color: $ipce-color;
+}
+
+.site-footer {
+	padding: ms(1) 0;
+}
+
+.widget_product_search form {
+	margin-bottom: 0;
+}
+
+@include susy-media($desktop) {
+	.site-header {
+		padding-top: ms(5);
+		padding-bottom: 0;
+
+		.site-branding {
+			display: inline-block;
+			@include span(first 4 of 12);
+
+			img {
+				height: auto;
+				max-width: 100%;
+				max-height: none;
+			}
+		}
+
+		.ipce_header_site_motto {
+			display: inline-block;
+			@include span(4 of 12);
+
+			> .content {
+				width: 60%;
+				margin: 3em auto 0 auto;
+				color: $ipce-color;
+				font-family: 'Righteous',HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+				font-size: 1.1em;
+				text-align: center;
+			}
+		}
+
+		.ipce_header_site_contact {
+			display: inline-block;
+			@include span(last 4 of 12);
+
+			> .content {
+				text-align: center;
+				margin-top: 3em;
+				color: $black;
+				font-size: 1.1em;
+			}
+		}
+	}
+
+	.right-sidebar {
+		.content-area {
+			@include span(9 of 12);
+		}
+
+		.widget-area {
+			@include span(last 3 of 12);
+		}
+	}
+
+	.left-sidebar {
+		.content-area {
+			@include span(last 9 of 12);
+		}
+
+		.widget-area {
+			@include span(3 of 12);
+		}
+	}
+
+	.two-sidebar {
+		.site-content .col-full {
+			display: flex;
+
+			.content-area {
+				@include span(6 of 12);
+				order: 2;
+			}
+
+			.widget-area {
+				@include span(first 3 of 12);
+				order: 1;
+			}
+
+			.widget-area-2 {
+				@include span(last 3 of 12);
+				order: 3;
+			}
+		}
+	}
+
+	.storefront-full-width-content {
+		.content-area {
+			@include span(full);
+		}
+	}
+
+	.content-area,
+	.widget-area {
+		margin-bottom: ms(5);
+	}
+
+	.page-template-template-fullwidth-php,
+	.page-template-template-homepage-php {
+		.content-area {
+			@include span(full);
+		}
+	}
+}
+
+// Override Contact Form 7 styles
+.wpcf7-form {
+	input[type="text"],
+	input[type="email"],
+	textarea {
+		width: 100%;
+	}
+}
+
+
+/* IPCE Custom Styles */
+.ipce-site-info {
+	font-size: 0.8em;
+	text-align: center;
+
+	p {
+		margin-bottom: 0;
+	}
+
+	.company {
+		color: $ipce-color;
+	}
+}
+
+ul.ipce-footer-menu {
+	display: flex;
+	justify-content: space-between;
+	padding-top: ms(1);
+	margin-top: ms(1);
+	border-top: 1px solid #ddd;
+
+	li {
+		display: block;
+	}
+}
+
+a.ipce-category-link {
+	margin-bottom: 1em;
+
+	> .content {
+		position: relative;
+		display: block;
+		background: $white;
+		transition: $ipce-transition;
+
+		img {
+			margin: 0 auto;
+		}
+
+		> .name {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			text-align: center;
+			background: rgba($white, 0.8);
+			color: $text-color;
+			padding: 0.5em 0;
+			transition: $ipce-transition;
+		}
+
+		&:hover {
+			background: rgba($black, 0.8);
+
+			> .name {
+				background: $ipce-color;
+				color: $white;
+				padding: 1em 0;
+			}
+		}
+	}
+}
+
+a.ipce-link,
+a.ipce-link:active,
+.site-footer a.ipce-link:not(.button),
+.site-footer a.ipce-link:not(.button):hover {
+	color: $ipce-color;
+}
+
+.ipce-product-manufacturer-page {
+	img {
+		margin: 0 auto;
+	}
+
+	p.p-return {
+		margin-top: ms(2);
+	}
+}
+
+.ipce-hide-title {
+	.entry-title {
+		display: none;
+	}
+}
+
+// FLAGS
+.flag {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url('flags.png') no-repeat;
+}
+
+
+.flag.flag-gb {
+	background-position: 0 0;
+}

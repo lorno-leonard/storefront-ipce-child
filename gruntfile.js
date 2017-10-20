@@ -8,12 +8,12 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'style.css': 'src/sass/style.scss'
+          'style.css': 'style.scss'
         }
       }
     },
     watch: {
-      files: 'src/sass/style.scss',
+      files: 'style.scss',
       tasks: ['sass']
     }
   });
